@@ -5,20 +5,26 @@ let randButton = document.getElementById("rgb");
 
 let colorChoice;
 
-function rgb2hex(rgb) {
-  rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
-  function hex(x) {
-    return ("0" + parseInt(x).toString(16)).slice(-2);
-  }
-  return "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
-}
-
 function createRow() {
   let element = document.getElementById("grid");
   let row = document.createElement("div");
   row.setAttribute("id", "row");
   element.appendChild(row);
   return row;
+}
+
+function createGrid(numRows) {
+  let grid = document.createElement("div");
+  grid.setAttribute("name", "grid");
+  grid.setAttribute("id", "grid");
+  document.body.appendChild(grid);
+  let numCols = numRows;
+  for (let i = 0; i < numRows; i++) {
+    let row = createRow();
+    for (let j = 0; j < numCols; j++) {
+      createCell(row);
+    }
+  }
 }
 
 function createCell(row) {
@@ -58,20 +64,6 @@ function generateColor(x) {
   x.style.backgroundColor = randomColor;
 }
 
-function createGrid(numRows) {
-  let grid = document.createElement("div");
-  grid.setAttribute("name", "grid");
-  grid.setAttribute("id", "grid");
-  document.body.appendChild(grid);
-  let numCols = numRows;
-  for (let i = 0; i < numRows; i++) {
-    let row = createRow();
-    for (let j = 0; j < numCols; j++) {
-      createCell(row);
-    }
-  }
-}
-
 clearButton.addEventListener("click", () => {
   let cell = document.getElementsByName("cell");
   for (let i = 0; i < cell.length; i++) {
@@ -80,7 +72,9 @@ clearButton.addEventListener("click", () => {
 });
 
 resetButton.addEventListener("click", () => {
-  let prompt = window.prompt("Please set the size of the grid between 0 and 100.");
+  let prompt = window.prompt(
+    "Please set the size of the grid between 0 and 100."
+  );
   console.log(prompt);
   if (prompt == null) {
     return;
@@ -94,11 +88,11 @@ resetButton.addEventListener("click", () => {
 });
 
 randButton.addEventListener("click", () => {
-    colorChoice = "default";
+  colorChoice = "default";
 });
 
 greyButton.addEventListener("click", () => {
-    colorChoice = "grayscale";
+  colorChoice = "grayscale";
 });
 
 createGrid(16);

@@ -28,10 +28,6 @@ body {
   margin-top: 40px;
 }
 
-#sketch {
-  position: absolute;
-}
-
 #reset,
 #clear,
 #grey,
@@ -75,8 +71,8 @@ body {
   display: table;
   border-collapse: collapse;
   border: 1px solid black;
-  height: 550px;
-  width: 550px;
+  height: 500px;
+  width: 500px;
 }
 
 #row {
