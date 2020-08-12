@@ -1,1 +1,1 @@
-This project was inspired by [GitHub Pages](https://www.theodinproject.com/courses/web-development-101/lessons/etch-a-sketch-project).
+This project was inspired by [The Odin Project](https://www.theodinproject.com/courses/web-development-101/lessons/etch-a-sketch-project).
